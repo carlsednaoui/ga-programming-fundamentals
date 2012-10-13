@@ -8,7 +8,7 @@ numbers = []
 
 # Run FizzBuzz
 puts "Running FizzBuzz"
-(1..100).each do |n|
+(1..1000).each do |n|
   if n % 15 == 0
     puts "fizzbuzz"
     fizzbuzz << n

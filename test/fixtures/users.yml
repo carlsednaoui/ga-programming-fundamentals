@@ -3,9 +3,9 @@
 one:
   name: MyString
   email: MyString
-  answer: MyString
+  fizzbuzz: MyString
 
 two:
   name: MyString
   email: MyString
-  answer: MyString
+  fizzbuzz: MyString

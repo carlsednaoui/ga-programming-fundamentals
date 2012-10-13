@@ -1,6 +1,6 @@
 
 class UsersController < ApplicationController
-before_filter :view_users_auth, :only => [:index, :destroy]
+before_filter :admin_auth, :only => [:index, :destroy]
 
   def index
     @users = User.all
@@ -36,6 +36,22 @@ before_filter :view_users_auth, :only => [:index, :destroy]
     end
   end
 
+  def apply
+    # respond_to do |format| 
+    #   format.json { render json: "welcome to the application page \n" }
+    # end
+
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        format.json { render json: {"message" => "Application submited. Thank you."}.to_json, status: :created }
+      else
+        format.json { render json: {"message" => "Application failed, please try again."}.to_json, status: 400}
+      end
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -49,7 +65,7 @@ before_filter :view_users_auth, :only => [:index, :destroy]
   protected
 
   # Basic HTML Authentication to view users
-  def view_users_auth
+  def admin_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == "ga" && password == "ga"
     end
