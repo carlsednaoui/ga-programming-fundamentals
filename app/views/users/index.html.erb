@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>FizzBuzz</th>
+    <th>Answer</th>
     <th></th>
   </tr>
 
@@ -12,7 +12,7 @@
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= user.fizzbuzz %></td>
+    <td><%= user.answer %></td>
     <td><%= link_to 'Destroy', delete_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
