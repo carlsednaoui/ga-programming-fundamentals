@@ -1,5 +1,5 @@
 GaProgrammingFundamentals::Application.routes.draw do
-  root to: "users#new"
+  root to: "users#index"
 
   get "/users" => "users#index", :as => "users"
   get "/users/new" => "users#new", :as => "new_user"
